@@ -49,6 +49,15 @@ class _LoginpageState extends State<Loginpage> {
                   return null;
                 },
               ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('Masuk'),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text('Belum memiliki akun? Silahkan '),
+                Text('Daftar disini!', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.green)) ,
+              ),
             ],
           ),
         ),
