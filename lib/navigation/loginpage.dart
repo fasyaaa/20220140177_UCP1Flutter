@@ -12,7 +12,7 @@ class _LoginpageState extends State<Loginpage> {
   final TextEditingController passwordController = TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
@@ -49,14 +49,25 @@ class _LoginpageState extends State<Loginpage> {
                   return null;
                 },
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Masuk'),
-              ),
+              ElevatedButton(onPressed: () {}, child: Text('Masuk')),
               TextButton(
                 onPressed: () {},
-                child: Text('Belum memiliki akun? Silahkan '),
-                Text('Daftar disini!', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.green)) ,
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Belum memiliki akun ? Silahkan',
+                    style: TextStyle(color: Colors.black),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Daftar disini!',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
