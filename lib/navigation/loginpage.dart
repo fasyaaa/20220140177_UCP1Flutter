@@ -28,6 +28,16 @@ class _LoginpageState extends State<Loginpage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('SELAMAT DATANG KEMBALI'),
+              TextFormField(
+                controller: emailController,
+                decoration: const InputDecoration(labelText: 'Email'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+              ),
             ],
           ),
         ),
