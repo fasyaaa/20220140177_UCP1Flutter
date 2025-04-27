@@ -27,6 +27,7 @@ class _LoginpageState extends State<Loginpage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Image.asset('assets/images/logos.png') ,
               Text('SELAMAT DATANG KEMBALI'),
               TextFormField(
                 controller: emailController,
