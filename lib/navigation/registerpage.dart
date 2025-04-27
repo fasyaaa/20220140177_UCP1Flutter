@@ -18,6 +18,7 @@ class _RegisterpageState extends State<Registerpage> {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Form(
         key: _formKey,
         child: Padding(
@@ -25,7 +26,21 @@ class _RegisterpageState extends State<Registerpage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('DAFTAR AKUN BARU'),
+              Image.asset(
+                    'assets/images/logos.png',
+                    width: 300,
+                    height: 300,
+                    fit: BoxFit.cover,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'DAFTAR AKUN BARU',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
+                    ),
+                  ),
               Text(''),
               // Text('Nama Lengkap'),
               TextFormField(
