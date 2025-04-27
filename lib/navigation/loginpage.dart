@@ -21,7 +21,9 @@ class _LoginpageState extends State<Loginpage> {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Form(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Form(
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
