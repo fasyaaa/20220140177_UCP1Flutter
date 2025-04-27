@@ -28,8 +28,15 @@ class _LoginpageState extends State<Loginpage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/logos.png') ,
-              Text('SELAMAT DATANG KEMBALI'),
+              Image.asset(
+                'assets/images/logos.png',
+                width: 300,
+                height: 300,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(height: 20,),
+              Text('SELAMAT DATANG KEMBALI', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'Roboto'),),
+              SizedBox(height: 20,),
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(labelText: 'Email'),
@@ -40,6 +47,7 @@ class _LoginpageState extends State<Loginpage> {
                   return null;
                 },
               ),
+              SizedBox(height: 20,),
               TextFormField(
                 controller: passwordController,
                 decoration: const InputDecoration(labelText: 'Password'),
@@ -51,6 +59,7 @@ class _LoginpageState extends State<Loginpage> {
                   return null;
                 },
               ),
+              SizedBox(height: 20,),
               ElevatedButton(onPressed: () {}, child: Text('Masuk')),
               TextButton(
                 onPressed: () {},
@@ -61,9 +70,7 @@ class _LoginpageState extends State<Loginpage> {
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Daftar disini!',
-                        style: TextStyle(
-                          color: Colors.green,
-                        ),
+                        style: TextStyle(color: Colors.green),
                       ),
                     ],
                   ),
