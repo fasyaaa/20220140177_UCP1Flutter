@@ -20,6 +20,7 @@ class _LoginpageState extends State<Loginpage> {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Form(
         key: _formKey,
         child: Padding(
