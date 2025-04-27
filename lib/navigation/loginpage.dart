@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/registerpage.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -45,6 +46,7 @@ class _LoginpageState extends State<Loginpage> {
                       fontFamily: 'Roboto',
                     ),
                   ),
+                  SizedBox(height: 30),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -102,10 +104,26 @@ class _LoginpageState extends State<Loginpage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
-                  ElevatedButton(onPressed: () {}, child: Text('Masuk')),
+                  SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 65, 187, 69),
+                        foregroundColor: Colors.black,
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                      ),
+                      child: Text('Masuk'),
+                    ),
+                  ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Registerpage()),
+                      );
+                    },
                     child: RichText(
                       text: TextSpan(
                         text: 'Belum memiliki akun ? Silahkan ',
@@ -113,7 +131,9 @@ class _LoginpageState extends State<Loginpage> {
                         children: <TextSpan>[
                           TextSpan(
                             text: 'Daftar disini!',
-                            style: TextStyle(color: Colors.green),
+                            style: TextStyle(
+                              color: const Color.fromARGB(255, 48, 190, 53),
+                            ),
                           ),
                         ],
                       ),
