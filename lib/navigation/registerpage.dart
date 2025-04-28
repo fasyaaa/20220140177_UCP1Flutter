@@ -185,6 +185,9 @@ class _RegisterpageState extends State<Registerpage> {
                                     if (value == null || value.isEmpty) {
                                       return 'Please enter your Password';
                                     }
+                                    if (value != passwordController) {
+                                      return 'Password tidak sama!';
+                                    }
                                     return null;
                                   },
                                 ),
@@ -207,7 +210,7 @@ class _RegisterpageState extends State<Registerpage> {
                                 TextFormField(
                                   keyboardType: TextInputType.text,
                                   controller: konfirmasiController,
-                                  obscureText: _passwordVisible,
+                                  obscureText: !_passwordVisible,
                                   decoration: InputDecoration(
                                     hintText: 'Konfirmasi Password',
                                     prefixIcon: Icon(Icons.lock),
@@ -231,6 +234,19 @@ class _RegisterpageState extends State<Registerpage> {
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Please enter your Password';
+                                    }
+                                    if (value != passwordController.text) {
+                                      ScaffoldMessenger.of(
+                                        context,
+                                      ).showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Password tidak sama!',
+                                          ),
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      );
+                                      return 'Password tidak sama!';
                                     }
                                     return null;
                                   },
