@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/datapelanggan.dart';
 import 'package:ucp1/navigation/datapiketpage.dart';
 import 'package:ucp1/navigation/loginpage.dart';
 
@@ -135,7 +136,14 @@ class Homepage extends StatelessWidget {
                               SizedBox(width: 10),
                               Expanded(
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Datapelanggan(),
+                                      ),
+                                    );
+                                  },
                                   child: Container(
                                     padding: EdgeInsets.all(50),
                                     decoration: BoxDecoration(
