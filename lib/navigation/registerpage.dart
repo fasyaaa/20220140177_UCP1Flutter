@@ -240,9 +240,7 @@ class _RegisterpageState extends State<Registerpage> {
                                         context,
                                       ).showSnackBar(
                                         SnackBar(
-                                          content: Text(
-                                            'Password tidak sama!',
-                                          ),
+                                          content: Text('Password tidak sama!'),
                                           backgroundColor: Colors.red,
                                         ),
                                       );
@@ -259,16 +257,26 @@ class _RegisterpageState extends State<Registerpage> {
                     ],
                   ),
                   SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => Loginpage()),
-                        );
-                      }
-                    },
-                    child: Text('Daftar'),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Loginpage(),
+                            ),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 65, 187, 69),
+                        foregroundColor: Colors.black,
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                      ),
+                      child: Text('Daftar'),
+                    ),
                   ),
                   SizedBox(height: 10),
                   TextButton(
