@@ -6,6 +6,7 @@ class Datapiketpage extends StatelessWidget {
   final TextEditingController tugasPiketController = TextEditingController();
   final TextEditingController tanggalController = TextEditingController();
   final String email;
+  final ValueNotifier<List<Map<String, String>>> listTugas = ValueNotifier([]);
   Datapiketpage({super.key, required this.email});
 
   @override
@@ -178,7 +179,20 @@ class Datapiketpage extends StatelessWidget {
                                 child: SizedBox(
                                   height: 60,
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      if (tugasPiketController
+                                              .text
+                                              .isNotEmpty &&
+                                          tanggalController.text.isNotEmpty) {
+                                        listTugas.value = [
+                                          ...listTugas.value,
+                                          {
+                                            'tugas': tugasPiketController.text,
+                                            'tanggal': tanggalController.text,
+                                          },
+                                        ];
+                                      }
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: const Color.fromARGB(
                                         255,
@@ -205,6 +219,78 @@ class Datapiketpage extends StatelessWidget {
                                 ),
                               ),
                             ],
+                          ),
+                          SizedBox(height: 20),
+                          Center(
+                            child: Text(
+                              'Daftar Tugas Piket',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          ValueListenableBuilder<List<Map<String, String>>>(
+                            valueListenable: listTugas,
+                            builder: (context, value, _) {
+                              if (value.isEmpty) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(top: 120),
+                                  child: Center(child: Text('Belum ada data')),
+                                );
+                              }
+                              return ListView.builder(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: value.length,
+                                itemBuilder: (context, index) {
+                                  final tugas = value[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 8,
+                                    ),
+                                    child: ElevatedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color.fromARGB(
+                                          255,
+                                          65,
+                                          187,
+                                          69,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
+                                        ),
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: 20,
+                                          horizontal: 16,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            tugas['tugas'] ?? '',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right,
+                                            color: Colors.white,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                           ),
                         ],
                       ),
