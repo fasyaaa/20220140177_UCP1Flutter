@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/detailpage.dart';
 import 'package:ucp1/navigation/homepage.dart';
 import 'package:intl/intl.dart';
 
@@ -251,7 +252,21 @@ class Datapiketpage extends StatelessWidget {
                                       vertical: 8,
                                     ),
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) => Detailpage(
+                                                  tugasPiket:
+                                                      tugasPiketController.text,
+                                                  tanggal:
+                                                      tanggalController.text,
+                                                  email: email,
+                                                ),
+                                          ),
+                                        );
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Color.fromARGB(
                                           255,
