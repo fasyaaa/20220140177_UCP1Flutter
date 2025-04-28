@@ -143,6 +143,12 @@ class Datapiketpage extends StatelessWidget {
 
                               FocusScope.of(context).unfocus();
                             },
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter date!';
+                              }
+                              return null;
+                            },
                           ),
                           SizedBox(height: 20),
                           Text(
@@ -181,10 +187,7 @@ class Datapiketpage extends StatelessWidget {
                                   height: 60,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (tugasPiketController
-                                              .text
-                                              .isNotEmpty &&
-                                          tanggalController.text.isNotEmpty) {
+                                      if (_formKey.currentState!.validate()) {
                                         listTugas.value = [
                                           ...listTugas.value,
                                           {
@@ -192,6 +195,8 @@ class Datapiketpage extends StatelessWidget {
                                             'tanggal': tanggalController.text,
                                           },
                                         ];
+                                        tugasPiketController.clear();
+                                        tanggalController.clear();
                                       }
                                     },
                                     style: ElevatedButton.styleFrom(
