@@ -185,7 +185,7 @@ class _RegisterpageState extends State<Registerpage> {
                                     if (value == null || value.isEmpty) {
                                       return 'Please enter your Password';
                                     }
-                                    if (value != passwordController) {
+                                    if (value != passwordController.text) {
                                       return 'Password tidak sama!';
                                     }
                                     return null;
