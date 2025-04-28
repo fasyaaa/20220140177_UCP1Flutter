@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/detailcuspage.dart';
 import 'package:ucp1/navigation/homepage.dart';
 
 class Datapelanggan extends StatefulWidget {
@@ -262,7 +263,24 @@ class _DatapelangganState extends State<Datapelanggan> {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) => Detailcuspage(
+                                            namaCus: cusController.text,
+                                            emailCus: emailController.text,
+                                            noHpCus: noHpController.text,
+                                            alamat: alamatController.text,
+                                            kodePos: kodePosController.text,
+                                            provinsi: provinsiController.text,
+                                          ),
+                                    ),
+                                  );
+                                }
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color.fromARGB(
                                   255,
