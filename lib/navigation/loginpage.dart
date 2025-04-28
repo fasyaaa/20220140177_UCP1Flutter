@@ -12,6 +12,7 @@ class Loginpage extends StatefulWidget {
 class _LoginpageState extends State<Loginpage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool _passwordVisible = false;
 
   @override
   void initState() {
@@ -87,15 +88,29 @@ class _LoginpageState extends State<Loginpage> {
                       ),
                       SizedBox(height: 10),
                       TextFormField(
+                        keyboardType: TextInputType.text,
                         controller: passwordController,
+                        obscureText: !_passwordVisible,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                            icon: Icon(
+                              _passwordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                            color: Colors.grey,
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           hintText: 'Password',
                         ),
-                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your password';
