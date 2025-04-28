@@ -88,7 +88,16 @@ class Homepage extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) =>
+                                                Datapiketpage(email: email),
+                                      ),
+                                    );
+                                  },
                                   child: Container(
                                     padding: EdgeInsets.all(50),
                                     decoration: BoxDecoration(
@@ -124,16 +133,7 @@ class Homepage extends StatelessWidget {
                               SizedBox(width: 10),
                               Expanded(
                                 child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder:
-                                            (context) =>
-                                                Datapiketpage(email: email),
-                                      ),
-                                    );
-                                  },
+                                  onTap: () {},
                                   child: Container(
                                     padding: EdgeInsets.all(50),
                                     decoration: BoxDecoration(
