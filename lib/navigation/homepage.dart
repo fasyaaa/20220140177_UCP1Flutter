@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/datapiketpage.dart';
 import 'package:ucp1/navigation/loginpage.dart';
 
 class Homepage extends StatelessWidget {
@@ -123,7 +124,16 @@ class Homepage extends StatelessWidget {
                               SizedBox(width: 10),
                               Expanded(
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) =>
+                                                Datapiketpage(email: email),
+                                      ),
+                                    );
+                                  },
                                   child: Container(
                                     padding: EdgeInsets.all(50),
                                     decoration: BoxDecoration(
@@ -180,7 +190,11 @@ class Homepage extends StatelessWidget {
                                 SizedBox(height: 8),
                                 Text(
                                   'Barang Masuk / Keluar',
-                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 15),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ],
                             ),
