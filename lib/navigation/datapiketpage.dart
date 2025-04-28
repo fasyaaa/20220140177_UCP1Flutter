@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1/navigation/homepage.dart';
+import 'package:intl/intl.dart';
 
 class Datapiketpage extends StatelessWidget {
   final TextEditingController tugasPiketController = TextEditingController();
@@ -100,9 +101,7 @@ class Datapiketpage extends StatelessWidget {
                             ),
                             readOnly: true,
                             onTap: () async {
-                              FocusScope.of(
-                                context,
-                              ).requestFocus(new FocusNode());
+                              FocusScope.of(context).requestFocus(FocusNode());
 
                               DateTime? pickedDate = await showDatePicker(
                                 context: context,
@@ -133,10 +132,13 @@ class Datapiketpage extends StatelessWidget {
                                   );
                                 },
                               );
+
                               if (pickedDate != null) {
-                                tanggalController.text =
-                                    "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+                                tanggalController.text = DateFormat(
+                                  'EEEE, dd MMMM yyyy',
+                                ).format(pickedDate);
                               }
+
                               FocusScope.of(context).unfocus();
                             },
                           ),
