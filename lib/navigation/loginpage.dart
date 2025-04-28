@@ -33,8 +33,8 @@ class _LoginpageState extends State<Loginpage> {
                 children: [
                   Image.asset(
                     'assets/images/logos.png',
-                    width: 300,
-                    height: 300,
+                    width: 250,
+                    height: 250,
                     fit: BoxFit.cover,
                   ),
                   SizedBox(height: 20),
