@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/homepage.dart';
 import 'package:ucp1/navigation/registerpage.dart';
 
 class Loginpage extends StatefulWidget {
@@ -108,7 +109,17 @@ class _LoginpageState extends State<Loginpage> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    Homepage(email: emailController.text),
+                          ),
+                          (route) => false,
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 65, 187, 69),
                         foregroundColor: Colors.black,
