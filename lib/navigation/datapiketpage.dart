@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ucp1/navigation/homepage.dart';
 
 class Datapiketpage extends StatelessWidget {
+  final TextEditingController tugasPiketController = TextEditingController();
+  final TextEditingController tanggalController = TextEditingController();
   final String email;
-  const Datapiketpage({super.key, required this.email});
+  Datapiketpage({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController tugasPiketController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -87,8 +88,59 @@ class Datapiketpage extends StatelessWidget {
                               color: Colors.black,
                             ),
                           ),
-                          
                           SizedBox(height: 10),
+                          TextFormField(
+                            controller: tanggalController,
+                            decoration: InputDecoration(
+                              hintText: 'Pilih Tanggal',
+                              prefixIcon: Icon(Icons.calendar_month),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            readOnly: true,
+                            onTap: () async {
+                              FocusScope.of(
+                                context,
+                              ).requestFocus(new FocusNode());
+
+                              DateTime? pickedDate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2000),
+                                lastDate: DateTime(2100),
+                                builder: (context, child) {
+                                  return Theme(
+                                    data: Theme.of(context).copyWith(
+                                      colorScheme: ColorScheme.light(
+                                        primary: Color.fromARGB(
+                                          255,
+                                          23,
+                                          109,
+                                          26,
+                                        ),
+                                      ),
+                                      datePickerTheme: DatePickerThemeData(
+                                        backgroundColor: Color.fromARGB(
+                                          255,
+                                          181,
+                                          246,
+                                          183,
+                                        ),
+                                      ),
+                                    ),
+                                    child: child!,
+                                  );
+                                },
+                              );
+                              if (pickedDate != null) {
+                                tanggalController.text =
+                                    "${pickedDate.day}/${pickedDate.month}/${pickedDate.year}";
+                              }
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                          SizedBox(height: 20),
                           Text(
                             'Tugas Piket',
                             style: TextStyle(
@@ -136,9 +188,17 @@ class Datapiketpage extends StatelessWidget {
                                       padding: EdgeInsets.symmetric(
                                         horizontal: 30,
                                       ),
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
                                     ),
-                                    child: Text('Tambah'),
+                                    child: Text(
+                                      'Tambah',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
