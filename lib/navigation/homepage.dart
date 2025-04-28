@@ -62,6 +62,8 @@ class Homepage extends StatelessWidget {
                 ],
               ),
             ),
+
+            // Content
             SizedBox(height: 12),
             Expanded(
               child: Container(
