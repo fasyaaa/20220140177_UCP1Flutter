@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/homepage.dart';
 import 'package:ucp1/navigation/loginpage.dart';
+import 'package:ucp1/navigation/orderpager.dart';
+import 'package:ucp1/navigation/registerpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +34,13 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Loginpage(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const Loginpage(),
+        '/register': (context) => const Registerpage(),
+        '/home': (context) => const Homepage(email: ''),
+        '/piket': (context) => const Orderpager(),
+      },
     );
   }
 }
