@@ -22,7 +22,7 @@ class Detailcuspage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Color.fromARGB(255, 65, 187, 69),
+      backgroundColor: Color.fromARGB(255, 65, 187, 69),
       body: SafeArea(
         child: Column(
           children: [
@@ -189,7 +189,7 @@ class Detailcuspage extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.popUntil(
                                       context,
-                                      ModalRoute.withName('/home')
+                                      ModalRoute.withName('/home'),
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
