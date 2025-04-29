@@ -55,4 +55,4 @@ data simpan
 ![datasimpan1](https://github.com/user-attachments/assets/4a7aa6de-bf7a-480c-8b8e-4fdcfddd607e)
 
 link video
-
+https://umyac-my.sharepoint.com/:v:/g/personal/muhammad_adifa_ft22_mail_umy_ac_id/EW822GUwnCpEsEyKlnwRv9ABViyBbhdwhWuZOCZAJxRsyg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=RYbRGZ
