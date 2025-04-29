@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1/navigation/detailorderpage.dart';
 import 'package:ucp1/navigation/homepage.dart';
 import 'package:intl/intl.dart';
 
@@ -298,7 +299,29 @@ class _OrderpagerState extends State<Orderpager> {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  hitungTotalHarga();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) => Detailorderpage(
+                                            tanggal: tanggalController.text,
+                                            jenisTransaksi:
+                                                jenisTransaksiController.text,
+                                            jenisBarang:
+                                                jenisBarangController.text,
+                                            jumlahBarang:
+                                                jumlahBarangController.text,
+                                            hargaSatuanBarang:
+                                               int.parse(hargaSatuanBarangController.text),
+                                               totalHarga: totalHargaBarang,
+                                          ),
+                                    ),
+                                  );
+                                }
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color.fromARGB(
                                   255,
