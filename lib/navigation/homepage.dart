@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ucp1/navigation/datapelanggan.dart';
 import 'package:ucp1/navigation/datapiketpage.dart';
 import 'package:ucp1/navigation/loginpage.dart';
+import 'package:ucp1/navigation/orderpager.dart';
 
 class Homepage extends StatelessWidget {
   final String email;
@@ -182,7 +183,14 @@ class Homepage extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Orderpager(),
+                              ),
+                            );
+                          },
                           child: Container(
                             width: double.infinity,
                             padding: EdgeInsets.all(50),
