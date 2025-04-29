@@ -26,7 +26,10 @@ class Detailorderpage extends StatelessWidget {
       {'label': 'Jenis Transaksi', 'value': jenisTransaksi},
       {'label': 'Jenis Barang', 'value': jenisBarang},
       {'label': 'Jumlah Barang', 'value': jumlahBarang},
-      {'label': 'Jenis Harga Satuan', 'value': 'Rp. ${hargaSatuanBarang.toString()}'},
+      {
+        'label': 'Jenis Harga Satuan',
+        'value': 'Rp. ${hargaSatuanBarang.toString()}',
+      },
       {'label': 'Total Harga', 'value': 'Rp. ${totalHarga.toString()}'},
     ];
 
@@ -36,11 +39,7 @@ class Detailorderpage extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 40),
-            const Icon(
-              Icons.check_circle,
-              color: Colors.green,
-              size: 100,
-            ),
+            const Icon(Icons.check_circle, color: Colors.green, size: 100),
             const SizedBox(height: 20),
             const Text(
               'Data Berhasil Disimpan',
@@ -50,33 +49,37 @@ class Detailorderpage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                children: detailItems
-                    .map((item) => Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  item['label']!,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
+                children:
+                    detailItems
+                        .map(
+                          (item) => Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    item['label']!,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  item['value']!,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                                  Text(
+                                    item['value']!,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 20,),
-                            const Divider(thickness: 1),
-                          ],
-                        ))
-                    .toList(),
+                                ],
+                              ),
+                              SizedBox(height: 20),
+                              const Divider(thickness: 1),
+                            ],
+                          ),
+                        )
+                        .toList(),
               ),
             ),
             const Spacer(),
@@ -86,7 +89,14 @@ class Detailorderpage extends StatelessWidget {
                 width: double.infinity,
                 height: 55,
                 child: ElevatedButton(
-                  onPressed: () => Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Homepage(email: '')), (route) => false,),
+                  onPressed:
+                      () => Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Homepage(email: ''),
+                        ),
+                        (route) => false,
+                      ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 65, 187, 69),
                     shape: RoundedRectangleBorder(
