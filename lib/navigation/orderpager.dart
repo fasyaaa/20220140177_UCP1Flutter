@@ -18,12 +18,14 @@ class _OrderpagerState extends State<Orderpager> {
   final List<String> jenisTransaksi = ['Barang Masuk', 'Barang Keluar'];
   final TextEditingController jenisBarangController = TextEditingController();
   String? _selectedBarangValue;
-  final List<String> jenisBarang = [
-    'Carrier',
-    'Sleeping Bag',
-    'Tenda',
-    'Sepatu',
-  ];
+
+  final Map<String, int> jenisBarang = {
+    'Carrier': 560000,
+    'Sleeping Bag': 280000,
+    'Tenda': 840000,
+    'Sepatu': 98000,
+  };
+
   final TextEditingController jumlahBarangController = TextEditingController();
   final TextEditingController hargaSatuanBarangController =
       TextEditingController();
@@ -202,16 +204,21 @@ class _OrderpagerState extends State<Orderpager> {
                               return null;
                             },
                             items:
-                                jenisBarang.map((String value) {
+                                jenisBarang.keys.map((String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
-                                    child: Text(value),
+                                    child: Text(
+                                      '$value (Rp ${jenisBarang[value]})',
+                                    ),
                                   );
                                 }).toList(),
                             onChanged: (newValue) {
                               setState(() {
                                 _selectedBarangValue = newValue;
                                 jenisBarangController.text = newValue!;
+                                hargaSatuanBarangController.text =
+                                    jenisBarang[newValue]
+                                        .toString();
                               });
                             },
                           ),
@@ -314,9 +321,10 @@ class _OrderpagerState extends State<Orderpager> {
                                                 jenisBarangController.text,
                                             jumlahBarang:
                                                 jumlahBarangController.text,
-                                            hargaSatuanBarang:
-                                               int.parse(hargaSatuanBarangController.text),
-                                               totalHarga: totalHargaBarang,
+                                            hargaSatuanBarang: int.parse(
+                                              hargaSatuanBarangController.text,
+                                            ),
+                                            totalHarga: totalHargaBarang,
                                           ),
                                     ),
                                   );
