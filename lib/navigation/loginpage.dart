@@ -125,15 +125,17 @@ class _LoginpageState extends State<Loginpage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder:
-                                (context) =>
-                                    Homepage(email: emailController.text),
-                          ),
-                          (route) => false,
-                        );
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      Homepage(email: emailController.text),
+                            ),
+                            (route) => false,
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 65, 187, 69),
@@ -145,9 +147,7 @@ class _LoginpageState extends State<Loginpage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(
-                        context, '/register',
-                      );
+                      Navigator.pushNamed(context, '/register');
                     },
                     child: RichText(
                       text: TextSpan(

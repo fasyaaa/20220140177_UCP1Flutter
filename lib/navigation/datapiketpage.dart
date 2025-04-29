@@ -258,19 +258,22 @@ class Datapiketpage extends StatelessWidget {
                                     ),
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder:
-                                                (context) => Detailpage(
-                                                  tugasPiket:
-                                                      tugasPiketController.text,
-                                                  tanggal:
-                                                      tanggalController.text,
-                                                  email: email,
-                                                ),
-                                          ),
-                                        );
+                                        if (_formKey.currentState!.validate()) {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder:
+                                                  (context) => Detailpage(
+                                                    tugasPiket:
+                                                        tugasPiketController
+                                                            .text,
+                                                    tanggal:
+                                                        tanggalController.text,
+                                                    email: email,
+                                                  ),
+                                            ),
+                                          );
+                                        }
                                       },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Color.fromARGB(
