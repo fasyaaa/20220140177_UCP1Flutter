@@ -187,12 +187,9 @@ class Detailcuspage extends StatelessWidget {
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    Navigator.pushReplacement(
+                                    Navigator.popUntil(
                                       context,
-                                      MaterialPageRoute(
-                                        builder:
-                                            (context) => Homepage(email: ''),
-                                      ),
+                                      ModalRoute.withName('/home')
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
