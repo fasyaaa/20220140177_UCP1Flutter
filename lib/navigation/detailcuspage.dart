@@ -22,7 +22,7 @@ class Detailcuspage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 65, 187, 69),
+      backgroundColor:Color.fromARGB(255, 65, 187, 69),
       body: SafeArea(
         child: Column(
           children: [
