@@ -264,20 +264,9 @@ class _DatapelangganState extends State<Datapelanggan> {
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () {
-                                if (_formKey.currentState!.validate()) {
+                                if(_formKey.currentState!.validate()){
                                   Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder:
-                                          (context) => Detailcuspage(
-                                            namaCus: cusController.text,
-                                            emailCus: emailController.text,
-                                            noHpCus: noHpController.text,
-                                            alamat: alamatController.text,
-                                            kodePos: kodePosController.text,
-                                            provinsi: provinsiController.text,
-                                          ),
-                                    ),
+                                    context, MaterialPageRoute(builder: (context)=> Detailcuspage(namaCus: cusController.text, emailCus: emailController.text, noHpCus: noHpController.text, alamat: alamatController.text, kodePos: kodePosController.text, provinsi: provinsiController.text))
                                   );
                                 }
                               },
